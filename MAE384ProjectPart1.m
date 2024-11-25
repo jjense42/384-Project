@@ -137,37 +137,46 @@ end
 
 
 figure(1)
-plot(days,St1,'red','LineWidth',2)
 hold on
+grid on
+
+plot(days,St1,'red','LineWidth',2)
 plot(days,It1,'green','LineWidth',2)
 plot(days,Rt1,'blue','linewidth',2)
-title('Seasonal Influenza, B = 0.3 y = 0.1')
+
+title('Seasonal Influenza, ß = 0.3 y = 0.1')
 xlabel('Time in Days')
 ylabel('People')
 legend('Suseptible','Infected','Rcovered')
-grid on
+
 hold off
 
 figure(2)
-plot(days,St2,'r','LineWidth',2)
 hold on
+grid on
+
+plot(days,St2,'r','LineWidth',2)
 plot(days,It2,'g','LineWidth',2)
 plot(days,Rt2,'b','linewidth',2)
-title('COVID-19, B = 1 y = 0.1')
+
+title('COVID-19, ß = 1 y = 0.1')
 xlabel('Time in Days')
 ylabel('People')
 legend('Suseptible','Infected','Rcovered')
-grid on
+
 hold off
 
 figure(3)
-plot(days,St3,'r','LineWidth',2)
 hold on
+grid on
+
+plot(days,St3,'r','LineWidth',2)
 plot(days,It3,'g','LineWidth',2)
 plot(days,Rt3,'b','linewidth',2)
-title('Measles, B = 2 y = .2')
+
+title('Measles, ß = 2 y = .2')
 xlabel('Time in Days')
 ylabel('People')
 legend('Suseptible','Infected','Rcovered')
-grid on
+
 hold off
