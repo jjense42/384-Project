@@ -18,16 +18,22 @@ It(1,1) = 10; %Number of infected individuals at time t
 Rt(1,1) = 0; %Number of recovered individuals at time t
 
 N = St + It + Rt; %Total Population
-Beta = 0.3; %Transmission Rate
-Gamma = 0.1; %Recovery Rate
+
 h = 1; %Step size in days
 T = 100; %Total simulation time in days (0 -> 100)
 
-dSdt = @(t, St, It, Rt) -(Beta / N) .* St .* It;
-dIdt = @(t, St, It, Rt) (Beta / N) .* St .* It - Gamma .* It;
-dRdt = @(t, St, It, Rt) Gamma .* It;
+
+
+days = 1:h:100;
 
 for t = 1:h:T
+
+    Beta = 0.3; %Transmission Rate
+    Gamma = 0.1; %Recovery Rate
+
+    dSdt = @(t, St, It, Rt) -(Beta / N) .* St .* It;
+    dIdt = @(t, St, It, Rt) (Beta / N) .* St .* It - Gamma .* It;
+    dRdt = @(t, St, It, Rt) Gamma .* It;
     
     k1S = dSdt(t, St(t,1), It(t,1), Rt(t,1));
     k1I = dIdt(t, St(t,1), It(t,1), Rt(t,1));
@@ -61,6 +67,10 @@ for t = 1:h:T
     Beta = 1;
     Gamma = 0.1;
     
+    dSdt = @(t, St, It, Rt) -(Beta / N) .* St .* It;
+    dIdt = @(t, St, It, Rt) (Beta / N) .* St .* It - Gamma .* It;
+    dRdt = @(t, St, It, Rt) Gamma .* It;
+
     k1S = dSdt(t, St(t,1), It(t,1), Rt(t,1));
     k1I = dIdt(t, St(t,1), It(t,1), Rt(t,1));
     k1R = dRdt(t, St(t,1), It(t,1), Rt(t,1));
@@ -93,6 +103,10 @@ for t = 1:h:T
     Beta = 2;
     Gamma = 0.2;
     
+    dSdt = @(t, St, It, Rt) -(Beta / N) .* St .* It;
+    dIdt = @(t, St, It, Rt) (Beta / N) .* St .* It - Gamma .* It;
+    dRdt = @(t, St, It, Rt) Gamma .* It;
+
     k1S = dSdt(t, St(t,1), It(t,1), Rt(t,1));
     k1I = dIdt(t, St(t,1), It(t,1), Rt(t,1));
     k1R = dRdt(t, St(t,1), It(t,1), Rt(t,1));
@@ -119,3 +133,41 @@ for t = 1:h:T
     Rt3(t,1) = Rt(t,1);
 
 end
+
+
+
+figure(1)
+plot(days,St1,'red','LineWidth',2)
+hold on
+plot(days,It1,'green','LineWidth',2)
+plot(days,Rt1,'blue','linewidth',2)
+title('Seasonal Influenza, B = 0.3 y = 0.1')
+xlabel('Time in Days')
+ylabel('People')
+legend('Suseptible','Infected','Rcovered')
+grid on
+hold off
+
+figure(2)
+plot(days,St2,'r','LineWidth',2)
+hold on
+plot(days,It2,'g','LineWidth',2)
+plot(days,Rt2,'b','linewidth',2)
+title('COVID-19, B = 1 y = 0.1')
+xlabel('Time in Days')
+ylabel('People')
+legend('Suseptible','Infected','Rcovered')
+grid on
+hold off
+
+figure(3)
+plot(days,St3,'r','LineWidth',2)
+hold on
+plot(days,It3,'g','LineWidth',2)
+plot(days,Rt3,'b','linewidth',2)
+title('Measles, B = 2 y = .2')
+xlabel('Time in Days')
+ylabel('People')
+legend('Suseptible','Infected','Rcovered')
+grid on
+hold off
