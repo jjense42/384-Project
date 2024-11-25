@@ -147,7 +147,7 @@ plot(days,Rt1,'blue','linewidth',2)
 title('Seasonal Influenza, ß = 0.3 y = 0.1')
 xlabel('Time in Days')
 ylabel('People')
-legend('Suseptible','Infected','Rcovered')
+legend('Susceptible','Infected','Recovered')
 
 hold off
 
@@ -162,7 +162,7 @@ plot(days,Rt2,'b','linewidth',2)
 title('COVID-19, ß = 1 y = 0.1')
 xlabel('Time in Days')
 ylabel('People')
-legend('Suseptible','Infected','Rcovered')
+legend('Susceptible','Infected','Recovered')
 
 hold off
 
@@ -177,6 +177,6 @@ plot(days,Rt3,'b','linewidth',2)
 title('Measles, ß = 2 y = .2')
 xlabel('Time in Days')
 ylabel('People')
-legend('Suseptible','Infected','Rcovered')
+legend('Susceptible','Infected','Recovered')
 
 hold off
