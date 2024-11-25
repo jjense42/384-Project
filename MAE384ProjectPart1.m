@@ -1,5 +1,5 @@
 %Runge-Kutta Method
-
+% i can edit code here
 St(1,1) = 990; %Number of susceptible individuals at time t
 It(1,1) = 10; %Number of infected individuals at time t
 Rt(1,1) = 0; %Number of recovered individuals at time t
