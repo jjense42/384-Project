@@ -120,5 +120,19 @@ for t = 3:h:T - 2
 
 end
 
+% Error calculations
+El2_Sl = sqrt(sum(St1linear - St1True).^2 ./N);
+El2_Il = sqrt(sum(It1linear - It1True).^2 ./N);
+El2_Rl = sqrt(sum(Rt1linear - Rt1True).^2 ./N);
 
+linerr = [El2_Sl; El2_Il; El2_Rl];
 
+El2_Sq = sqrt(sum(St1Quad - St1True).^2 ./N);
+El2_Iq = sqrt(sum(It1Quad - It1True).^2 ./N);
+El2_Rq = sqrt(sum(Rt1Quad - Rt1True).^2 ./N);
+
+quaderr = [El2_Sq; El2_Iq;El2_Rq];
+
+ErrorTable = table([linerr],[quaderr],'VariableNames', {'Linear Error', 'Quadratic Error'});
+
+disp(ErrorTable);
