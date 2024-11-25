@@ -180,3 +180,14 @@ ylabel('People')
 legend('Susceptible','Infected','Recovered')
 
 hold off
+
+% The beta value is the transmission rate, or how often susceptible
+% individuals get infected while gamma is recovery rate, or how often the
+% affected individuals recover. When the beta parameter increases, the
+% number of susceptible individuals decreases significantly quicker, the
+% overall recovery rate is signifcantly quicker, and the infected
+% population spikes to a greater amplitude ealier. When the gamma parameter
+% doubles along with the beta parameter, the susceptible, infected, and
+% recovered populations all have similar behavior, except they all exhibit
+% the end behavior twice as quickly. the dervatives are much sharper
+% (change in the populations occur much quicker). 
