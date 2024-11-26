@@ -26,14 +26,20 @@ T = 100; %Total simulation time in days (0 -> 100)
 
 days = 1:h:100;
 
-for t = 1:h:T
+for t = 1:h:T % For loop calculation for the standard flu 
+
+% variables
 
     Beta = 0.3; %Transmission Rate
     Gamma = 0.1; %Recovery Rate
 
+% Set of nonlinear differential equations
+
     dSdt = @(t, St, It, Rt) -(Beta / N) .* St .* It;
     dIdt = @(t, St, It, Rt) (Beta / N) .* St .* It - Gamma .* It;
     dRdt = @(t, St, It, Rt) Gamma .* It;
+
+% Runge Kutta Calculations. Each diff eq gets evaluated
     
     k1S = dSdt(t, St(t,1), It(t,1), Rt(t,1));
     k1I = dIdt(t, St(t,1), It(t,1), Rt(t,1));
@@ -55,6 +61,8 @@ for t = 1:h:T
     St(t + 1,1) = St(t,1) + (1/6) * (k1S + 2 * k2S + 2 * k3S + k4S) * h;
     It(t + 1,1) = It(t,1) + (1/6) * (k1I + 2 * k2I + 2 * k3I + k4I) * h;
     Rt(t + 1,1) = Rt(t,1) + (1/6) * (k1R + 2 * k2R + 2 * k3R + k4R) * h;
+
+% Values for susceptible, infected, and recovered persons is retabulated into a vector to be plotted later
 
     St1(t,1) = St(t,1);
     It1(t,1) = It(t,1);
@@ -136,7 +144,7 @@ end
 
 
 
-figure(1)
+figure(1) % Figure for Seasonal Influenza
 hold on
 grid on
 
@@ -151,7 +159,7 @@ legend('Susceptible','Infected','Recovered')
 
 hold off
 
-figure(2)
+figure(2) Figure for Covid-19
 hold on
 grid on
 
@@ -166,7 +174,7 @@ legend('Susceptible','Infected','Recovered')
 
 hold off
 
-figure(3)
+figure(3) Figure for Measels
 hold on
 grid on
 
