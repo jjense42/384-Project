@@ -57,9 +57,9 @@ for t = 1:h:T
 end
 
 %linear least squares with T=1:30
-x=days(1:30);
-y=It1';
-y=log(y);
+T=30
+x=days(1:T);
+y=log(It1(1:T))';
 
 %solve for ln I(t)=ln I(0)+kt. A1=k A0=ln I(0)
 A1= (T*sum(x.*y)-(sum(x)*sum(y)))/(T*sum(x.^2)-(sum(x)^2));
@@ -70,9 +70,9 @@ b=(A1+Gamma)*(N/St(1,1))
 
 
 %linear least squares with T=1:10
-x1=days(1:10);
-y1=y(1:10);
-y1=log(y1);
+T=10
+x1=days(1:T);
+y1=log(It1(1:T))';
 
 %solve for ln I(t)=ln I(0)+kt. A11=k A01=ln I(0)
 A11= (10*sum(x1.*y1)-(sum(x1)*sum(y1)))/(10*sum(x1.^2)-((sum(x1))^2));
