@@ -90,6 +90,8 @@ disp(b1);
 disp('Estimimated I(O) for T = 10:');
 disp(I01);
 
+%% Discussion Section
+
 % As you decrease the T value (number of days), the estimated values for 
 % I(0) and beta converge to the true values. Decreasing the number of data 
 % points, the I(t) curve becomes more like an exponential. Therefore, 
