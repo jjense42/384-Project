@@ -6,6 +6,9 @@ clc
 St1 = zeros(1,1);
 It1 = zeros(1,1);
 Rt1 = zeros(1,1);
+St2 = zeros(1,1);
+It2 = zeros(1,1);
+Rt2 = zeros(1,1);
 
 A = 5; %Amplitude
 w1 = 2 * pi * 365/365; %Angular Frequency
