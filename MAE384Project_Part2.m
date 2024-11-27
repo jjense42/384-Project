@@ -137,8 +137,8 @@ ErrorTable = table([linerr],[quaderr],'VariableNames', {'Linear Error', 'Quadrat
 
 disp(ErrorTable);
 
-% The quadratic Lagrangian method produces a significantly smaller error 
-% than the linear Lagrangian method. The quadratic method provides a 
+% Discussion section: The quadratic Lagrangian method produces a significantly smaller 
+% error than the linear Lagrangian method. The quadratic method provides a 
 % better fit for functions with notable curvature, such as the specific 
 % functions we have approximated in this part. Both of the methods used the
 % same amount of data points, so the effect of data amounts and step sizes 
