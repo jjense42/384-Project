@@ -103,6 +103,8 @@ axis([0 5, 0 m])
 
 hold off
 
+t1 = 1;
+
 for t = 1:h:T1 % For loop for #6
 
     Beta = Beta0 * (1 + A * sin(w2 * t));
@@ -155,4 +157,4 @@ title('Fourier Analysis of Infected Cases')
 legend('Discrete Fourier Transform')
 ylabel('FFT')
 xlabel('f')
-axis([0 l, 0 m2])
+axis([0 5, 0 m2])
