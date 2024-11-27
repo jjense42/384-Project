@@ -56,30 +56,36 @@ for t = 1:h:T
 
 end
 
-%linear least squares with T=1:30
-T=30
+%linear least squares with T = 30
+T = 30;
 x=days(1:T);
-y=log(It1(1:T))';
+y=log((It1(1:T))');
+
 
 %solve for ln I(t)=ln I(0)+kt. A1=k A0=ln I(0)
 A1= (T*sum(x.*y)-(sum(x)*sum(y)))/(T*sum(x.^2)-(sum(x)^2));
 A0= (sum(y)/T)-((A1/T)*(sum(x)));
-I0=exp(A0)
-b=(A1+Gamma)*(N/St(1,1))
+I0=exp(A0);
+b=(A1+Gamma)*(N/St(1,1));
 
 
 
-%linear least squares with T=1:10
-T=10
+%linear least squares with T = 10
+T = 10;
 x1=days(1:T);
-y1=log(It1(1:T))';
+y1=log((It1(1:T))');
 
 %solve for ln I(t)=ln I(0)+kt. A11=k A01=ln I(0)
-A11= (10*sum(x1.*y1)-(sum(x1)*sum(y1)))/(10*sum(x1.^2)-((sum(x1))^2));
-A01= (sum(y1)/10)-(A11*(sum(x1)/10));
-I01=exp(A01)
-b1=(A11+Gamma)*(N/St(1,1))
+A11= (T*sum(x1.*y1)-(sum(x1)*sum(y1)))/(T*sum(x1.^2)-((sum(x1))^2));
+A01= ((sum(y1))/T)-(A11*(sum(x1)/T));
+I01=exp(A01);
+b1=(A11+Gamma)*(N/St(1,1));
 
-
-
-
+disp('Estimimated ß for T = 30:');
+disp(b);
+disp('Estimimated I(O) for T = 30:');
+disp(I0);
+disp('Estimimated ß for T = 10:');
+disp(b1);
+disp('Estimimated I(O) for T = 10:');
+disp(I01);
