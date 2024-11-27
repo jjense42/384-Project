@@ -55,3 +55,37 @@ for t = 1:h:T
     Rt1(t,1) = Rt(t,1);
 
 end
+
+%linear least squares with T=1:30
+x=days(1:30);
+y=It1';
+%solve for ln I(t)=ln I(0)+kt. A1=k A0=ln I(0)
+A1= (T*sum(x.*y)-(sum(x)*sum(y)))/(T*sum(x.^2)-(sum(x)^2))
+A0= (sum(y)/T)-(A1*(sum(x)/T));
+I0=exp(A0)
+Y=[];
+for t=1:T
+    Y= [Y I0*exp(A1*(t))];
+end
+
+b1=(A1+Gamma)*(N/St(1,1))
+
+
+
+%linear least squares with T=1:10
+x1=days(1:10);
+y1=y(1:10);
+
+%solve for ln I(t)=ln I(0)+kt. A11=k A01=ln I(0)
+A11= (10*sum(x1.*y1)-(sum(x1)*sum(y1)))/(10*sum(x1.^2)-(sum(x1)^2));
+A01= (sum(y1)/10)-(A11*(sum(x1)/10));
+I01=exp(A01)
+Y1=[];
+for t=1:10
+    Y1= [Y1 I01*exp(A11*(t))];
+end
+b1=(A11+Gamma)*(N/St(1,1))
+
+
+
+
