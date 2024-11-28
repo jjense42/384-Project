@@ -1,4 +1,4 @@
-%% Part 1: Runge-Kutta Method
+%% Part 1: modeling disease spread using SIR model
 format shortG; clear; clc
 
 % Initializing Variable Definitions
