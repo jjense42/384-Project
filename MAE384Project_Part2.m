@@ -1,7 +1,5 @@
-% Runge-Kutta Method
-format shortG
-clear
-clc
+% Part 2: Runge-Kutta Method
+format shortG; clear; clc
 
 % Variable Definitions
 St1 = zeros(1,1);
@@ -12,14 +10,12 @@ It(1,1) = 10; % Number of infected individuals at time t
 Rt(1,1) = 0; % Number of recovered individuals at time t
 
 N = St + It + Rt; % Total Combined Population
-
 h = 1; % Step size in days
 T = 100; % Total simulation time in days (0 -> 100)
-
 days = 1:h:100;
 
 for t = 1:h:T
-    
+    % Define 1st set of givens
     Beta = 0.3; % Transmission Rate
     Gamma = 0.1; % Recovery Rate
 
@@ -45,7 +41,7 @@ for t = 1:h:T
     k4I = dIdt(t + h, St(t,1) + k3S * h, It(t,1) + k3I, Rt(t,1) + k3R);
     k4R = dRdt(t + h, St(t,1) + k3S * h, It(t,1) + k3I, Rt(t,1) + k3R);
 
-    
+    % RK Method, employing constants previously defined
     St(t + 1,1) = St(t,1) + (1/6) * (k1S + 2 * k2S + 2 * k3S + k4S) * h;
     It(t + 1,1) = It(t,1) + (1/6) * (k1I + 2 * k2I + 2 * k3I + k4I) * h;
     Rt(t + 1,1) = Rt(t,1) + (1/6) * (k1R + 2 * k2R + 2 * k3R + k4R) * h;
@@ -68,10 +64,11 @@ for t = 1:h:T
     end
 end
 
+% Synthesize all linear values for each model into matrix
 St1linear(:,:) = St1(:,:);
 It1linear(:,:) = It1(:,:);
 Rt1linear(:,:) = Rt1(:,:);
-
+% Synthesize all quadratic values for each model into matrix
 St1Quad(:,:) = St1(:,:);
 It1Quad(:,:) = It1(:,:);
 Rt1Quad(:,:) = Rt1(:,:);
