@@ -1,3 +1,4 @@
+%% Part 3: Least Squares
 format shortG; clear; clc
 
 % Initializing Given Variables
