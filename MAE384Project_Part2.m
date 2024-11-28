@@ -1,4 +1,4 @@
-% Part 2: Runge-Kutta Method
+%% Part 2: Linear/Quadratic Interpolation
 format shortG; clear; clc
 
 % Variable Definitions
