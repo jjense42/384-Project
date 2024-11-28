@@ -1,3 +1,4 @@
+%% Part IV: Fourier Analysis 
 format shortG; clear; clc
 
 % Variable Initiation
